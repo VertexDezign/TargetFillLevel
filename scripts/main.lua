@@ -1,8 +1,5 @@
 local modDir = g_currentModDirectory
 source(modDir .. "scripts/lib/inspect.lua");
-
--- ControlBarDisplay:addFillLevelDisplay
--- ControlBarDisplay:addFillLevelDisplaysFromVehicles(vehicles)
 TargetFillLevel = {}
 -- local TargetFillLevel_mt = Class(TargetFillLevel)
 
@@ -69,66 +66,11 @@ function TargetFillLevel:myAction()
             print('TFL: normal combine')
         end
     end
-
-    -- for _, vehicle in pairs(g_currentMission.vehicles) do
-    --     if  then
-
-    --     end
-    --     if SpecializationUtil.hasSpecialization(Combine, vehicle.specializations) then
-    --         print('TFL: I\'m a combine!')
-
-    --         if vehicle.spec_pipe ~= nil then
-    --             print('TFL: has pipe')
-
-    --             local capacity = 0
-    --             local dischargeNode = vehicle:getCurrentDischargeNode()
-    --             print(inspect(dischargeNode, {depth = 1}))
-
-    --             if dischargeNode ~= nil then
-    --                 capacity = vehicle:getFillUnitCapacity(dischargeNode.fillUnitIndex)
-    --                 print(inspect(capacity))
-    --             end
-
-    --         end
-    --     end
-    -- end
-
-    -- print(inspect(g_currentMission.vehicles, {depth = 2}))
-
-    -- print(player.ownerFarmId)
-    -- if player.isEntered == false then
-    --     print('TFL: Is in vehicle')
-    -- else
-    --     print('TFL: Is not in vehicle')
-    -- end
-end
-
--- function TargetFillLevel:draw(dt)
---     if not g_currentMission.isLoaded or g_currentMission.player == nil then
---         return;
---     end
-
---     -- local player = g_currentMission.player
---     -- if player.isEntered == false then
---     --     print(player.isEntered)
---     -- end
--- end
-
--- function TargetFillLevel:updatePrependix(dt)
---     local vehicle = self.vehicle
---     print('TFL: prependix')
--- 	if vehicle ~= nil and SpecializationUtil.hasSpecialization(Combine, vehicle.specializations) then
---         print('TFL: combine')
---     end
--- end
-
-function tflOverride(dt, superFunc)
-    print('TFL: show on hud')
 end
 
 function TargetFillLevel:getFillLevelInformation(superFunc, display)
     superFunc(self, display)
-    print('TFL: getFillLevelInformation')
+    -- print('TFL: getFillLevelInformation')
 
     -- self is the vehicle
     if SpecializationUtil.hasSpecialization(Combine, self.specializations) then
@@ -137,6 +79,11 @@ function TargetFillLevel:getFillLevelInformation(superFunc, display)
 
         if combine.spec_pipe == nil then
             print('TFL: combine has no pipe!!')
+            return
+        end
+
+        if combine.spec_pipe.targetState ~= 2 then
+            print('TFL: pipe is not ready!!')
             return
         end
 
@@ -171,6 +118,22 @@ function TargetFillLevel:getFillLevelInformation(superFunc, display)
             -- see orginial in AIDriveStrategyCombine:111 "allowedToDrive = trailerInTrigger and targetObject ~= nil"
             local targetObject, _ = combine:getDischargeTargetObject(dischargeNode)
             showTargetFillLevel = targetObject ~= nil
+
+            if trailer ~= nil then
+				if trailer.getFillLevelInformation ~= nil then
+					trailer:getFillLevelInformation(display)
+				elseif trailer.getFillLevel ~= nil and trailer.getFillType ~= nil then
+					local fillType = trailer:getFillType()
+					local fillLevel = trailer:getFillLevel()
+					local capacity = fillLevel
+
+					if trailer.getCapacity ~= nil then
+						capacity = trailer:getCapacity()
+					end
+
+					display:addFillLevel(fillType, fillLevel, capacity)
+				end
+			end
 
             -- print(inspect(targetObject, {
             --     depth = 1
