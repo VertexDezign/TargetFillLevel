@@ -1,0 +1,13 @@
+# System stuff
+.DS_STORE
+
+# Build system
+.fsbuild.yml
+FS22*.zip
+FS22_Survival*
+
+# IDE
+.idea/
+.atom
+
+*.exe

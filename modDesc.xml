@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<modDesc descVersion="61">
+    <author>-tinte-</author>
+    <version>1.0.0.0</version>
+    <title>
+        <en>Target fill level</en>
+    </title>
+    <description>
+        <en><![CDATA[Target fill level
+
+You want to know how full the trailer you're loading is? Forage harvester drivers will love this mod. The fill level of the targeted trailer is now shown in the HUD.
+
+For Bugreports please use: https://github.com/schliesser/fs-targetfilllevel/issues
+]]></en>
+    </description>
+    <iconFilename>icon.dds</iconFilename>
+    <multiplayer supported="true"/>
+
+    <extraSourceFiles>
+        <sourceFile filename="scripts/main.lua"/>
+    </extraSourceFiles>
+
+    <inputBinding>
+        <actionBinding action="TFL_ACTION">
+            <binding device="KB_MOUSE_DEFAULT" input="KEY_l"/>
+        </actionBinding>
+    </inputBinding>
+
+    <actions>
+        <action name="TFL_ACTION" category="SYSTEM" axisType="HALF" locked="true" displayCategory="GAME"/>
+    </actions>
+</modDesc>
