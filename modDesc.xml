@@ -30,14 +30,4 @@ Fehler bitte hier melden: https://github.com/schliesser/fs-targetfilllevel/issue
     <extraSourceFiles>
         <sourceFile filename="scripts/main.lua"/>
     </extraSourceFiles>
-
-    <inputBinding>
-        <actionBinding action="TFL_ACTION">
-            <binding device="KB_MOUSE_DEFAULT" input="KEY_l"/>
-        </actionBinding>
-    </inputBinding>
-
-    <actions>
-        <action name="TFL_ACTION" category="SYSTEM" axisType="HALF" locked="true" displayCategory="GAME"/>
-    </actions>
 </modDesc>
