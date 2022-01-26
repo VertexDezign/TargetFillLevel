@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
-<modDesc descVersion="61">
+<modDesc descVersion="63">
     <author>-tinte-</author>
     <version>1.0.0.0</version>
     <title>
-        <en>Target fill level</en>
-        <de>Füllstand des Zielobjekts</de>
+        <en>Target Fill Level</en>
+        <de>Füllstand Des Zielobjekts</de>
     </title>
     <description>
-        <en><![CDATA[Target fill level
+        <en><![CDATA[Target Fill Level
 
 You want to know how full the trailer you're loading is? Forage harvester drivers love this mod. The fill level of the targeted trailer is now shown in the HUD.
 
@@ -15,7 +15,7 @@ It's only available for forage harvesters. For other combines it's not possible 
 
 For Bugreports please use: https://github.com/schliesser/fs-targetfilllevel/issues
 ]]></en>
-<de><![CDATA[Füllstand des Zielobjekts
+<de><![CDATA[Füllstand Des Zielobjekts
 
 Du möchtest wissen, wie voll der Anhänger ist, den du belädst? Häckslerfahrer lieben diesen Mod. Der Füllstand des angepeilten Anhängers wird nun im HUD angezeigt.
 
