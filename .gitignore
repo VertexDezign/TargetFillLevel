@@ -3,8 +3,9 @@
 
 # Build system
 .fsbuild.yml
-FS22*.zip
 FS22_Survival*
+*.zip
+.env
 
 # IDE
 .idea/

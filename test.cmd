@@ -5,17 +5,20 @@ CALL pack.cmd
 
 IF %ERRORLEVEL% NEQ 0 ( exit 1 )
 
-SET testRunnerPath="D:\Code\FSTools\TestRunner\\"
-SET gamePath="G:\SteamLibrary\steamapps\common\Farming Simulator 22\\"
-SET modTestPath=%testRunnerPath%%modName%\
+setlocal
+FOR /F "tokens=*" %%i IN ('type .env') DO SET %%i
+
+SET modTestPath=%testTempFolder%%modName%
 
 ECHO Prepare files to test
+RMDIR %modTestPath% /s /q
 MKDIR %modTestPath%
 COPY %filename% %modTestPath%
 CD %modTestPath%
 UNZIP -o %filename%
 DEL %filename%
-DIR
 
 ECHO Execute TestRunner
-%testRunnerPath%TestRunner_public.exe %modTestPath% -g %gamePath% --noPause
+%testRunner% %modTestPath% -g %gamePath% --noPause
+
+endlocal
