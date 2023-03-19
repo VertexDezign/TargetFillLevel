@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<map xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../shared/xml/schema/fillTypes.xsd">
+    <fillTypes>
+        <fillType name="TARGET_VEHICLE" title="$l10n_fillType_targetVehicle" showOnPriceTable="false" unitShort="">
+            <physics massPerLiter="1.0" maxPhysicalSurfaceAngle="0" />
+            <economy pricePerLiter="0" />
+            <image hud="hud/filltype_targetVehicle.dds"/>
+        </fillType>
+    </fillTypes>
+</map>

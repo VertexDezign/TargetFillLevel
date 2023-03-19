@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
-<modDesc descVersion="66">
+<modDesc descVersion="73">
     <author>-tinte-</author>
-    <version>1.0.0.1</version>
+    <version>1.1.0.0</version>
     <title>
         <en>Target Fill Level</en>
         <de>Füllstand Des Zielobjekts</de>
@@ -27,7 +27,15 @@ Fehler bitte hier melden: https://github.com/schliesser/fs-targetfilllevel/issue
     <iconFilename>icon.dds</iconFilename>
     <multiplayer supported="true"/>
 
+    <fillTypes filename="xml/fillTypes.xml"/>
     <extraSourceFiles>
         <sourceFile filename="scripts/main.lua"/>
     </extraSourceFiles>
+
+    <l10n>
+	    <text name="fillType_targetVehicle">
+			<en>Target fill level</en>
+			<de>Füllstand des Zielobjekts</de>
+		</text>
+	</l10n>
 </modDesc>

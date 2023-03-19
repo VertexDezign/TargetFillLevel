@@ -2,7 +2,7 @@
 --[[
 Target Fill Level Mod for Farming Simulator 2022
 
-Copyright (c) -tinte-, 2021
+Copyright (c) -tinte-, 2023
 
 Author: André Buchmann
 Issues: https://github.com/schliesser/fs-targetfilllevel/issues
@@ -43,23 +43,42 @@ function TargetFillLevel:getFillLevelInformation(superFunc, display)
             return
         end
 
-        --[[ The fill level could be added to any combine, but as they are concatenated
-        by type, it doesn't make sence to display them. Therefor it will be displayed
-        only for forage harvesters.
-        ]]
-        -- detect forage harvester as AI does it
-        local dischargeNode = combine:getCurrentDischargeNode()
-        if dischargeNode ~= nil and combine:getFillUnitCapacity(dischargeNode.fillUnitIndex) == math.huge then
-            TargetFillLevel:addFillLevelDisplay(trailer, display)
-        end
+        TargetFillLevel:addFillLevelDisplay(trailer, display)
     end
 end
 
 function TargetFillLevel:addFillLevelDisplay(targetVehicle, display)
+    -- print('TFL: addFillLevelDisplay')
     if targetVehicle.getFillLevelInformation ~= nil then
-        targetVehicle:getFillLevelInformation(display)
+        -- here we have the pipe target on forage harvesters and combines
+        -- print('TFL: target has getFillLevelInformation')
+        local spec = targetVehicle.spec_fillUnit
+
+        for i = 1, #spec.fillUnits do
+            local fillUnit = spec.fillUnits[i]
+
+            if fillUnit.capacity > 0 and fillUnit.showOnHud then
+                local fillLevel = fillUnit.fillLevel
+
+                if fillUnit.fillLevelToDisplay ~= nil then
+                    fillLevel = fillUnit.fillLevelToDisplay
+                end
+
+                local capacity = fillUnit.capacity
+
+                if fillUnit.parentUnitOnHud ~= nil then
+                    capacity = 0
+                end
+
+                -- idea: match fillUnit fillType with combine filltype
+                -- and skip all unneccessary fillType outputs
+
+                display:addFillLevel(TargetFillLevel:getFillType(), fillLevel, capacity)
+            end
+        end
     elseif targetVehicle.getFillLevel ~= nil and targetVehicle.getFillType ~= nil then
-        local fillType = targetVehicle:getFillType()
+        -- when do we run in here?
+        -- print('TFL: target has getFillLevel and getFillType')
         local fillLevel = targetVehicle:getFillLevel()
         local capacity = fillLevel
 
@@ -67,8 +86,18 @@ function TargetFillLevel:addFillLevelDisplay(targetVehicle, display)
             capacity = targetVehicle:getCapacity()
         end
 
-        display:addFillLevel(fillType, fillLevel, capacity)
+        display:addFillLevel(TargetFillLevel:getFillType(), fillLevel, capacity)
     end
+end
+
+function TargetFillLevel:getFillType()
+    local fillTypeObject = g_fillTypeManager:getFillTypeByName("TARGET_VEHICLE")
+
+    if fillTypeObject ~= nil and fillTypeObject.index ~= nil then
+        return fillTypeObject.index
+    end
+
+    return 0
 end
 
 function initTargetFillLevel(name)
@@ -82,5 +111,19 @@ function initTargetFillLevel(name)
     -- Hook onto fill level display
     Vehicle.getFillLevelInformation = Utils.overwrittenFunction(Vehicle.getFillLevelInformation, TargetFillLevel.getFillLevelInformation)
 end
+
+-- helper function to debug tables
+function tflDump(o)
+    if type(o) == 'table' then
+       local s = '{ '
+       for k,v in pairs(o) do
+          if type(k) ~= 'number' then k = '"'..k..'"' end
+          s = s .. '['..k..'] = ' .. tflDump(v) .. ','
+       end
+       return s .. '} '
+    else
+       return tostring(o)
+    end
+ end
 
 initTargetFillLevel(g_currentModName)
