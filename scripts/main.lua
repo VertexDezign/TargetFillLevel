@@ -1,16 +1,14 @@
-----------------------------------------------------------------------------------------------------
 --[[
-Target Fill Level Mod for Farming Simulator 2022
+Target Fill Level Mod for Farming Simulator 22
 
-Copyright (c) -tinte-, 2023
-
-Author: André Buchmann
+Author: André Buchman & VertexDezign
+Website: https://vertexdezign.net/
 Issues: https://github.com/schliesser/fs-targetfilllevel/issues
 
 Feel free to open a pull reuests for enhancements or bugfixes.
 
-You are not allowed to sell this or a modified version of the mod.
-]] ----------------------------------------------------------------------------------------------------
+FS22_TargetFillLevel © 2023 by André Buchmann & VertexDezign is licensed under CC BY-NC-ND 4.0. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-nd/4.0/
+]]
 
 TargetFillLevel = {}
 TargetFillLevel.debug = false
@@ -18,14 +16,10 @@ TargetFillLevel.debug = false
 function TargetFillLevel:getFillLevelInformation(superFunc, display)
     superFunc(self, display)
 
-
     -- Variable self is the vehicle in this method
     if SpecializationUtil.hasSpecialization(Pipe, self.specializations) then
         local pipe = self.spec_pipe
         tflPrint('I\'m a vehicle with a pipe!')
-
-        tflPrint('targetState ' .. pipe.targetState .. '; numStates ' .. pipe.numStates .. '; currentState ' .. pipe.currentState .. '; hasMovablePipe ' )
-        tflPrint(pipe.hasMovablePipe)
 
         -- Check if vehicle has spec_foldable and exit if not unfolded
         if SpecializationUtil.hasSpecialization(Foldable, self.specializations) then
@@ -60,44 +54,32 @@ function TargetFillLevel:getFillLevelInformation(superFunc, display)
 end
 
 function TargetFillLevel:addFillLevelDisplay(targetVehicle, display)
-    if targetVehicle.getFillLevelInformation ~= nil then
-        -- here we have the pipe target on forage harvesters and combines
-        tflPrint('Target has getFillLevelInformation')
-        local spec = targetVehicle.spec_fillUnit
+    if targetVehicle.getFillLevelInformation == nil then
+        return
+    end
 
-        for i = 1, #spec.fillUnits do
-            local fillUnit = spec.fillUnits[i]
+    -- here we have the pipes target vehicle (e.g. trailer under combine pipe)
+    tflPrint('Target has getFillLevelInformation')
+    local spec = targetVehicle.spec_fillUnit
 
-            if fillUnit.capacity > 0 and fillUnit.showOnHud then
-                local fillLevel = fillUnit.fillLevel
+    for i = 1, #spec.fillUnits do
+        local fillUnit = spec.fillUnits[i]
 
-                if fillUnit.fillLevelToDisplay ~= nil then
-                    fillLevel = fillUnit.fillLevelToDisplay
-                end
+        if fillUnit.capacity > 0 and fillUnit.showOnHud then
+            local fillLevel = fillUnit.fillLevel
 
-                local capacity = fillUnit.capacity
-
-                if fillUnit.parentUnitOnHud ~= nil then
-                    capacity = 0
-                end
-
-                -- idea: match fillUnit fillType with combine filltype
-                -- and skip all unneccessary fillType outputs
-
-                display:addFillLevel(TargetFillLevel:getFillType(), fillLevel, capacity)
+            if fillUnit.fillLevelToDisplay ~= nil then
+                fillLevel = fillUnit.fillLevelToDisplay
             end
-        end
-    elseif targetVehicle.getFillLevel ~= nil and targetVehicle.getFillType ~= nil then
-        -- when do we run in here?
-        tflPrint('TFL: target has getFillLevel and getFillType')
-        local fillLevel = targetVehicle:getFillLevel()
-        local capacity = fillLevel
 
-        if targetVehicle.getCapacity ~= nil then
-            capacity = targetVehicle:getCapacity()
-        end
+            local capacity = fillUnit.capacity
 
-        display:addFillLevel(TargetFillLevel:getFillType(), fillLevel, capacity)
+            if fillUnit.parentUnitOnHud ~= nil then
+                capacity = 0
+            end
+
+            display:addFillLevel(TargetFillLevel:getFillType(), fillLevel, capacity)
+        end
     end
 end
 
@@ -108,6 +90,7 @@ function TargetFillLevel:getFillType()
         return fillTypeObject.index
     end
 
+    -- fallback to fillType "unknown" to prevent errors
     return 0
 end
 
@@ -117,8 +100,6 @@ function initTargetFillLevel(name)
         return
     end
 
-    addModEventListener(TargetFillLevel)
-
     -- Hook onto fill level display
     Vehicle.getFillLevelInformation = Utils.overwrittenFunction(Vehicle.getFillLevelInformation, TargetFillLevel.getFillLevelInformation)
 end
@@ -126,7 +107,7 @@ end
 -- Helper function to print in debug mode
 function tflPrint(value)
     if TargetFillLevel.debug then
-        print('TFL: ' .. tostring(value))
+        print('TFL: ' .. tflDump(value))
     end
 end
 
