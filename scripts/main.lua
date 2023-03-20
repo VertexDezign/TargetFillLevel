@@ -13,33 +13,45 @@ You are not allowed to sell this or a modified version of the mod.
 ]] ----------------------------------------------------------------------------------------------------
 
 TargetFillLevel = {}
+TargetFillLevel.debug = false
 
 function TargetFillLevel:getFillLevelInformation(superFunc, display)
     superFunc(self, display)
 
+
     -- Variable self is the vehicle in this method
-    if SpecializationUtil.hasSpecialization(Combine, self.specializations) then
-        local combine = self
-        -- print('TFL: I\'m a combine!')
+    if SpecializationUtil.hasSpecialization(Pipe, self.specializations) then
+        local pipe = self.spec_pipe
+        tflPrint('I\'m a vehicle with a pipe!')
 
-        if combine.spec_pipe == nil then
-            -- print('TFL: combine has no pipe!!')
+        tflPrint('targetState ' .. pipe.targetState .. '; numStates ' .. pipe.numStates .. '; currentState ' .. pipe.currentState .. '; hasMovablePipe ' )
+        tflPrint(pipe.hasMovablePipe)
+
+        -- Check if vehicle has spec_foldable and exit if not unfolded
+        if SpecializationUtil.hasSpecialization(Foldable, self.specializations) then
+            if not self.spec_foldable:getIsUnfolded() then
+                tflPrint('unfold first!!')
+                return
+            end
+        end
+
+        -- All basegame vehicles have <states num="2" unloading="2" /> except Ropa Maus6 and Grimme Ventor4150
+        -- they are foldable, but they have no movable pipes, so we skip them in this check
+        if (pipe.hasMovablePipe and pipe.targetState ~= pipe.numStates) then
+            tflPrint('Pipe is not ready!!')
             return
         end
 
-        if combine.spec_pipe.targetState ~= 2 then
-            -- print('TFL: pipe is not ready!!')
+        -- Check for valid discharge location
+        if pipe.nearestObjectInTriggerIgnoreFillLevel then
+            tflPrint('Invalid trailer in trigger!')
             return
         end
 
-        if combine.spec_pipe.nearestObjectInTriggerIgnoreFillLevel then
-            -- print('TFL: Invalid trailer in trigger!')
-            return
-        end
-
-        local trailer = NetworkUtil.getObject(combine.spec_pipe.nearestObjectInTriggers.objectId)
+        -- Get the trailer to find it's current fill level
+        local trailer = NetworkUtil.getObject(pipe.nearestObjectInTriggers.objectId)
         if trailer == nil then
-            -- print('TFL: No trailer in trigger!')
+            tflPrint('No trailer in trigger!')
             return
         end
 
@@ -48,10 +60,9 @@ function TargetFillLevel:getFillLevelInformation(superFunc, display)
 end
 
 function TargetFillLevel:addFillLevelDisplay(targetVehicle, display)
-    -- print('TFL: addFillLevelDisplay')
     if targetVehicle.getFillLevelInformation ~= nil then
         -- here we have the pipe target on forage harvesters and combines
-        -- print('TFL: target has getFillLevelInformation')
+        tflPrint('Target has getFillLevelInformation')
         local spec = targetVehicle.spec_fillUnit
 
         for i = 1, #spec.fillUnits do
@@ -78,7 +89,7 @@ function TargetFillLevel:addFillLevelDisplay(targetVehicle, display)
         end
     elseif targetVehicle.getFillLevel ~= nil and targetVehicle.getFillType ~= nil then
         -- when do we run in here?
-        -- print('TFL: target has getFillLevel and getFillType')
+        tflPrint('TFL: target has getFillLevel and getFillType')
         local fillLevel = targetVehicle:getFillLevel()
         local capacity = fillLevel
 
@@ -112,7 +123,14 @@ function initTargetFillLevel(name)
     Vehicle.getFillLevelInformation = Utils.overwrittenFunction(Vehicle.getFillLevelInformation, TargetFillLevel.getFillLevelInformation)
 end
 
--- helper function to debug tables
+-- Helper function to print in debug mode
+function tflPrint(value)
+    if TargetFillLevel.debug then
+        print('TFL: ' .. tostring(value))
+    end
+end
+
+-- Helper function to debug tables
 function tflDump(o)
     if type(o) == 'table' then
        local s = '{ '

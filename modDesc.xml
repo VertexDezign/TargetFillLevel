@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <modDesc descVersion="73">
     <author>-tinte-</author>
-    <version>1.1.0.0</version>
+    <version>2.0.0.0</version>
     <title>
         <en>Target Fill Level</en>
         <de>Füllstand Des Zielobjekts</de>
@@ -9,19 +9,23 @@
     <description>
         <en><![CDATA[Target Fill Level
 
-You want to know how full the trailer you're loading is? Forage harvester drivers love this mod. The fill level of the targeted trailer is now shown in the HUD.
-
-It's only available for forage harvesters. For other combines it's not possible to show the trailer fill level, as the base game displayes the fill units concatenated by crop type.
+You want to know how full the trailer you're loading is? Combine and forage harvester drivers love this mod. The fill level of the targeted trailer is now shown in the HUD.
 
 For Bugreports please use: https://github.com/schliesser/fs-targetfilllevel/issues
+
+Changelog 2.0.0.0
+- Use custom fill type for target vehicle
+- Display now implemented for all vehicles with a pipe
 ]]></en>
 <de><![CDATA[Füllstand Des Zielobjekts
 
-Du möchtest wissen, wie voll der Anhänger ist, den du belädst? Häckslerfahrer lieben diesen Mod. Der Füllstand des angepeilten Anhängers wird nun im HUD angezeigt.
-
-Nur für Feldhäcksler verfügbar. Bei anderen Mähdreschern ist es nicht möglich, den Füllstand des Anhängers anzuzeigen, da das Basisspiel die Fülleinheiten nach Pflanzenart gruppiert anzeigt.
+Du möchtest wissen, wie voll der Anhänger ist, den du belädst? Mähdrescher- und Häckslerfahrer lieben diesen Mod. Der Füllstand des angepeilten Anhängers wird nun im HUD angezeigt.
 
 Fehler bitte hier melden: https://github.com/schliesser/fs-targetfilllevel/issues
+
+Changelog 2.0.0.0
+- Eigener Fülltyp für die Anzeige des Zielfahrzeugs
+- Anzeige jetzt für alle Fahrzeuge mit einem Überladerohr implementiert
 ]]></de>
     </description>
     <iconFilename>icon.dds</iconFilename>
