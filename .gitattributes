@@ -17,3 +17,5 @@
 /icon.png export-ignore
 /icon.svg export-ignore
 /*.cmd export-ignore
+/resources export-ignore
+/.git export-ignore
