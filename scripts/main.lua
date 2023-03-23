@@ -3,7 +3,7 @@ Target Fill Level Mod for Farming Simulator 22
 
 Author: André Buchman & VertexDezign
 Website: https://vertexdezign.net/
-Issues: https://github.com/schliesser/fs-targetfilllevel/issues
+Issues: https://github.com/VertexDezign/TargetFillLevel/issues
 
 Feel free to open a pull reuests for enhancements or bugfixes.
 

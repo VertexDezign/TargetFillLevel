@@ -11,7 +11,7 @@
 
 You want to know how full the trailer you're loading is? Combine and forage harvester drivers love this mod. The fill level of the targeted trailer is now shown in the HUD.
 
-For Bugreports please use: https://github.com/schliesser/fs-targetfilllevel/issues
+Please report bug on <a href="https://github.com/VertexDezign/TargetFillLevel/issues">Github</a>.
 
 Changelog 2.0.0.0
 - Use custom fill type for target vehicle
@@ -21,7 +21,7 @@ Changelog 2.0.0.0
 
 Du möchtest wissen, wie voll der Anhänger ist, den du belädst? Mähdrescher- und Häckslerfahrer lieben diesen Mod. Der Füllstand des angepeilten Anhängers wird nun im HUD angezeigt.
 
-Fehler bitte hier melden: https://github.com/schliesser/fs-targetfilllevel/issues
+Fehler bitte auf <a href="https://github.com/VertexDezign/TargetFillLevel/issues">Github</a> melden.
 
 Changelog 2.0.0.0
 - Eigener Fülltyp für die Anzeige des Zielfahrzeugs
