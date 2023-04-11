@@ -19,3 +19,5 @@
 /*.cmd export-ignore
 /resources export-ignore
 /.git export-ignore
+/.github export-ignore
+/.env.example export-ignore
