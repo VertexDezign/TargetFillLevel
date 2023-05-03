@@ -5,6 +5,7 @@
     <title>
         <en>Target Fill Level</en>
         <de>Füllstand Des Zielobjekts</de>
+        <ru>Уровень Заполнения Транспорта</ru>
     </title>
     <description>
         <en><![CDATA[Target Fill Level
@@ -40,6 +41,7 @@ Changelog 2.0.0.0
 	    <text name="fillType_targetVehicle">
 			<en>Target fill level</en>
 			<de>Füllstand des Zielobjekts</de>
+			<ru>Заполнение ТС</ru>
 		</text>
 	</l10n>
 </modDesc>
