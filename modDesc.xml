@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
-<modDesc descVersion="73">
-    <author>-tinte-</author>
-    <version>2.0.0.0</version>
+<modDesc descVersion="79">
+    <author>-tinte- / VertexDezign</author>
+    <version>2.0.1.0</version>
     <title>
         <en>Target Fill Level</en>
         <de>Füllstand Des Zielobjekts</de>
@@ -14,6 +14,9 @@ You want to know how full the trailer you're loading is? Combine and forage harv
 
 Please report bug on <a href="https://github.com/VertexDezign/TargetFillLevel/issues">Github</a>.
 
+Changelog 2.0.1.0
+- Show notification when target fill level is at 80% or completely full
+
 Changelog 2.0.0.0
 - Use custom fill type for target vehicle
 - Display now implemented for all vehicles with a pipe
@@ -23,6 +26,9 @@ Changelog 2.0.0.0
 Du möchtest wissen, wie voll der Anhänger ist, den du belädst? Mähdrescher- und Häckslerfahrer lieben diesen Mod. Der Füllstand des angepeilten Anhängers wird nun im HUD angezeigt.
 
 Fehler bitte auf <a href="https://github.com/VertexDezign/TargetFillLevel/issues">Github</a> melden.
+
+Changelog 2.0.1.0
+- Benachrichtigung anzeigen, wenn der Zielfüllstand bei 80% oder vollständig gefüllt ist
 
 Changelog 2.0.0.0
 - Eigener Fülltyp für die Anzeige des Zielfahrzeugs
@@ -42,6 +48,16 @@ Changelog 2.0.0.0
 			<en>Target fill level</en>
 			<de>Füllstand des Zielobjekts</de>
 			<ru>Заполнение ТС</ru>
+		</text>
+	    <text name="tfl_messageErrorTargetIsNearlyFull">
+			<en>%s: Target %s is nearly full! (80%%)</en>
+			<de>%s: Zielobjekts %s ist fast voll! (80%%)</de>
+			<ru>%s: Цель %s почти заполнена! (80%%)</ru>
+		</text>
+	    <text name="tfl_messageErrorTargetIsFull">
+			<en>%s: Target %s is full!</en>
+			<de>%s: Zielobjekts %s ist voll!</de>
+			<ru>%s: Цель переполнена!</ru>
 		</text>
 	</l10n>
 </modDesc>

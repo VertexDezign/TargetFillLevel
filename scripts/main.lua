@@ -49,11 +49,11 @@ function TargetFillLevel:getFillLevelInformation(superFunc, display)
             return
         end
 
-        TargetFillLevel:addFillLevelDisplay(trailer, display)
+        TargetFillLevel:addFillLevelDisplay(self, trailer, display)
     end
 end
 
-function TargetFillLevel:addFillLevelDisplay(targetVehicle, display)
+function TargetFillLevel:addFillLevelDisplay(vehicle, targetVehicle, display)
     if targetVehicle.getFillLevelInformation == nil then
         return
     end
@@ -79,6 +79,30 @@ function TargetFillLevel:addFillLevelDisplay(targetVehicle, display)
             end
 
             display:addFillLevel(TargetFillLevel:getFillType(), fillLevel, capacity)
+
+            -- Show notification when target is nearly full
+            if fillLevel > 0.8 * capacity then
+                tflPrint('Over 80%')
+                if not targetVehicle.notificationTFLNearlyFullShown then
+                    g_currentMission:addIngameNotification(FSBaseMission.INGAME_NOTIFICATION_CRITICAL, string.format(g_i18n:getText("tfl_messageErrorTargetIsNearlyFull"), vehicle:getFullName(), targetVehicle:getFullName()))
+
+                    targetVehicle.notificationTFLNearlyFullShown = true
+                end
+            else
+                targetVehicle.notificationTFLNearlyFullShown = false
+            end
+
+            -- Show notification when target is completely full
+            if fillLevel > 0.99 * capacity then
+                tflPrint('Completely full')
+                if targetVehicle.notificationTFLFullShown ~= true then
+                    g_currentMission:addIngameNotification(FSBaseMission.INGAME_NOTIFICATION_CRITICAL, string.format(g_i18n:getText("tfl_messageErrorTargetIsFull"), vehicle:getFullName(), targetVehicle:getFullName()))
+
+                    targetVehicle.notificationTFLFullShown = true
+                end
+            else
+                targetVehicle.notificationTFLFullShown = false
+            end
         end
     end
 end
