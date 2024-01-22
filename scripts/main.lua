@@ -59,7 +59,6 @@ function TargetFillLevel:addFillLevelDisplay(vehicle, targetVehicle, display)
     end
 
     -- here we have the pipes target vehicle (e.g. trailer under combine pipe)
-    tflPrint('Target has getFillLevelInformation')
     local spec = targetVehicle.spec_fillUnit
 
     for i = 1, #spec.fillUnits do
@@ -72,36 +71,36 @@ function TargetFillLevel:addFillLevelDisplay(vehicle, targetVehicle, display)
                 fillLevel = fillUnit.fillLevelToDisplay
             end
 
-            local capacity = fillUnit.capacity
+            display:addFillLevel(TargetFillLevel:getFillType(), fillLevel, fillUnit.capacity)
 
-            if fillUnit.parentUnitOnHud ~= nil then
-                capacity = 0
+            local fillLevelPercentage = targetVehicle:getFillUnitFillLevelPercentage(i)
+            tflPrint(fillLevelPercentage)
+
+            -- Save state on fill unit to support multi storage semi trailer
+            if fillUnit.notificationTFLNearlyFullShown == nil and fillLevelPercentage > 0 then
+                fillUnit.notificationTFLNearlyFullShown = false
             end
 
-            display:addFillLevel(TargetFillLevel:getFillType(), fillLevel, capacity)
+            if fillUnit.notificationTFLFullShown == nil and fillLevelPercentage > 0 then
+                fillUnit.notificationTFLFullShown = false
+            end
 
-            -- Show notification when target is nearly full
-            if fillLevel > 0.8 * capacity then
-                tflPrint('Over 80%')
-                if not targetVehicle.notificationTFLNearlyFullShown then
+            if fillLevelPercentage > 0.8 then
+                -- Show notification when target is nearly full
+                if not fillUnit.notificationTFLNearlyFullShown then
                     g_currentMission:addIngameNotification(FSBaseMission.INGAME_NOTIFICATION_CRITICAL, string.format(g_i18n:getText("tfl_messageErrorTargetIsNearlyFull"), vehicle:getFullName(), targetVehicle:getFullName()))
 
-                    targetVehicle.notificationTFLNearlyFullShown = true
+                    fillUnit.notificationTFLNearlyFullShown = true
                 end
-            else
-                targetVehicle.notificationTFLNearlyFullShown = false
             end
 
-            -- Show notification when target is completely full
-            if fillLevel > 0.99 * capacity then
-                tflPrint('Completely full')
-                if targetVehicle.notificationTFLFullShown ~= true then
+            if fillLevelPercentage > 0.99 then
+                -- Show notification when target is completely full
+                if not fillUnit.notificationTFLFullShown then
                     g_currentMission:addIngameNotification(FSBaseMission.INGAME_NOTIFICATION_CRITICAL, string.format(g_i18n:getText("tfl_messageErrorTargetIsFull"), vehicle:getFullName(), targetVehicle:getFullName()))
 
-                    targetVehicle.notificationTFLFullShown = true
+                    fillUnit.notificationTFLFullShown = true
                 end
-            else
-                targetVehicle.notificationTFLFullShown = false
             end
         end
     end
