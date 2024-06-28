@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
-<modDesc descVersion="79">
+<modDesc descVersion="80">
     <author>-tinte- / VertexDezign</author>
     <version>2.0.1.0</version>
     <title>
@@ -35,7 +35,7 @@ Changelog 2.0.0.0
 - Anzeige jetzt für alle Fahrzeuge mit einem Überladerohr implementiert
 ]]></de>
     </description>
-    <iconFilename>icon.dds</iconFilename>
+    <iconFilename>icon_targetFillLevel.dds</iconFilename>
     <multiplayer supported="true"/>
 
     <fillTypes filename="xml/fillTypes.xml"/>
