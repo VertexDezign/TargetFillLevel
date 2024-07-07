@@ -16,6 +16,7 @@ Please report bug on <a href="https://github.com/VertexDezign/TargetFillLevel/is
 
 Changelog 2.0.1.0
 - Show notification when target fill level is at 80% or completely full
+- Add support for discharge to objects (unloading triggers, shovels) ...
 
 Changelog 2.0.0.0
 - Use custom fill type for target vehicle
@@ -29,6 +30,7 @@ Fehler bitte auf <a href="https://github.com/VertexDezign/TargetFillLevel/issues
 
 Changelog 2.0.1.0
 - Benachrichtigung anzeigen, wenn der Zielfüllstand bei 80% oder vollständig gefüllt ist
+- Unterstützung für Ablade Trigger, Schaufeln, ... hinzugefügt
 
 Changelog 2.0.0.0
 - Eigener Fülltyp für die Anzeige des Zielfahrzeugs
