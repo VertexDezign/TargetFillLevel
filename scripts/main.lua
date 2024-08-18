@@ -11,7 +11,7 @@ FS22_TargetFillLevel © 2023 by André Buchmann & VertexDezign is licensed under
 ]]
 
 TargetFillLevel = {}
-TargetFillLevel.debug = true
+TargetFillLevel.debug = false
 
 function TargetFillLevel:getFillLevelInformation(superFunc, display)
     -- Variable self is the vehicle in this method

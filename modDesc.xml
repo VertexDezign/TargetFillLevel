@@ -4,15 +4,27 @@
     <version>2.0.1.0</version>
     <title>
         <en>Target Fill Level</en>
-        <de>Füllstand Des Zielobjekts</de>
+        <de>Ziel-Füllstand</de>
         <ru>Уровень Заполнения Транспорта</ru>
     </title>
     <description>
         <en><![CDATA[Target Fill Level
 
-You want to know how full the trailer you're loading is? Combine and forage harvester drivers love this mod. The fill level of the targeted trailer is now shown in the HUD.
+Ready to Load Like a Pro?
 
-Please report bug on <a href="https://github.com/VertexDezign/TargetFillLevel/issues">Github</a>.
+Imagine you're driving your big combine or forage harvester in Farming Simulator 22, and you need to know when the trailer or silo you're unloading into is almost full. With the Target Fill Level mod, you can see exactly how full it is—right on your screen!
+
+Why is this Awesome?
+
+- See the Fill Level: Always know how full the trailer or unloading station is, so you don't spill any crops or waste time.
+
+- Get Alerts: The game will tell you when the trailer or silo is 80% full or totally full, so you can plan your next move!
+
+- Perfect for Combines & More: Whether you're driving a combine, forage harvester, or using any vehicle with a pipe, this mod has you covered!
+
+Get ready to farm smarter, not harder. Download "Target Fill Level" and become the best farmer in the game!
+
+Have ideas to make the mod even better? Found a bug? Let us know on <a href="https://github.com/VertexDezign/TargetFillLevel/issues">Github</a> so we can keep improving the mod together!
 
 Changelog 2.0.1.0
 - Show notification when target fill level is at 80% or completely full
@@ -22,11 +34,23 @@ Changelog 2.0.0.0
 - Use custom fill type for target vehicle
 - Display now implemented for all vehicles with a pipe
 ]]></en>
-<de><![CDATA[Füllstand Des Zielobjekts
+<de><![CDATA[Ziel-Füllstand
 
-Du möchtest wissen, wie voll der Anhänger ist, den du belädst? Mähdrescher- und Häckslerfahrer lieben diesen Mod. Der Füllstand des angepeilten Anhängers wird nun im HUD angezeigt.
+Bereit, wie ein Profi zu laden?
 
-Fehler bitte auf <a href="https://github.com/VertexDezign/TargetFillLevel/issues">Github</a> melden.
+Stell dir vor, du fährst deinen großen Mähdrescher oder Feldhäcksler in Farming Simulator 22 und musst wissen, wie voll der Anhänger oder das Silo ist, in das du entlädst. Mit dem Ziel-Füllstand-Mod kannst du genau sehen, wie voll es ist—direkt auf deinem Bildschirm!
+
+Warum ist das genial?
+
+- Füllstand sehen: Du weißt immer genau, wie voll der Anhänger oder das Entladestation ist, damit nichts verschüttet wird und du keine Zeit verlierst.
+
+- Erhalte Benachrichtigungen: Das Spiel sagt dir, wenn der Anhänger oder das Silo zu 80% oder komplett voll ist, damit du deine nächsten Schritte planen kannst!
+
+- Perfekt für Mähdrescher & Co.: Egal, ob du einen Mähdrescher, Feldhäcksler oder ein anderes Fahrzeug mit einem Rohr fährst—dieser Mod hat alles im Griff!
+
+Mach dich bereit, cleverer zu farmen, nicht härter. Lade "Ziel-Füllstand" herunter und werde der beste Bauer im Spiel!
+
+Hast du Ideen, um den Mod noch besser zu machen? Einen Fehler gefunden? Lass es uns auf GitHub wissen, damit wir den Mod gemeinsam verbessern können!
 
 Changelog 2.0.1.0
 - Benachrichtigung anzeigen, wenn der Zielfüllstand bei 80% oder vollständig gefüllt ist
@@ -48,7 +72,7 @@ Changelog 2.0.0.0
     <l10n>
 	    <text name="fillType_targetVehicle">
 			<en>Target fill level</en>
-			<de>Füllstand des Zielobjekts</de>
+			<de>Ziel-Füllstand</de>
 			<ru>Заполнение ТС</ru>
 		</text>
 	    <text name="tfl_messageErrorTargetIsNearlyFull">
