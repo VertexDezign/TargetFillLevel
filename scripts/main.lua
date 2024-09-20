@@ -71,7 +71,7 @@ function TargetFillLevel:hasDischargeTarget(vehicle, display)
 
     -- Show target fill level for shovels, unload triggers,...
     local dischargeable = vehicle.spec_dischargeable
-    local dischargeNode = dischargeable.currentDischargeNode
+    local dischargeNode = dischargeable:getCurrentDischargeNode()
     tflPrint('I\'m a vehicle with a Dischargeable!')
 
     -- Show only discharges to objects. There is no level when dumping on the ground
@@ -87,13 +87,13 @@ function TargetFillLevel:hasDischargeTarget(vehicle, display)
     end
 
     -- Get discharge target object
-    local target = dischargeNode.dischargeObject
+    local target = dischargeable:getCurrentDischargeObject(dischargeNode)
     if target == nil then
         tflPrint('No discharge object in trigger!')
         return false
     end
 
-    if target.getFillUnitFillLevelTFL ~= nil and target.getFillUnitCapacityTFL then
+    if target.getFillUnitFillLevelTFL ~= nil and target.getFillUnitCapacityTFL ~= nil then
         -- Calculate fill level for storages / productions
         local fillLevel = target:getFillUnitFillLevelTFL(dischargeNode.dischargeFillUnitIndex, dischargeable:getDischargeFillType(dischargeNode), dischargeable:getActiveFarm())
         local capacity = target:getFillUnitCapacityTFL(dischargeNode.dischargeFillUnitIndex, dischargeable:getDischargeFillType(dischargeNode), dischargeable:getActiveFarm())
@@ -203,7 +203,7 @@ end
 
 -- Add helper functions to UnloadTrigger objects
 function UnloadTrigger:getFillUnitFillLevelTFL(fillUnitIndex, fillTypeIndex, farmId)
-	if self.target.getFreeCapacity ~= nil then
+	if self.target.getFillLevel ~= nil then
 		local conversion = self.fillTypeConversions[fillTypeIndex]
 
 		if conversion ~= nil then
@@ -217,7 +217,7 @@ function UnloadTrigger:getFillUnitFillLevelTFL(fillUnitIndex, fillTypeIndex, far
 end
 
 function UnloadTrigger:getFillUnitCapacityTFL(fillUnitIndex, fillTypeIndex, farmId)
-	if self.target.getFreeCapacity ~= nil then
+	if self.target.getCapacity ~= nil then
 		local conversion = self.fillTypeConversions[fillTypeIndex]
 
 		if conversion ~= nil then
