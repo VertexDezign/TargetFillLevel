@@ -5,7 +5,7 @@
     <title>
         <en>Target Fill Level</en>
         <de>Ziel-Füllstand</de>
-        <ru>Уровень Заполнения Транспорта</ru>
+        <ru>Уровень Заполнения ТС И Хранилищ</ru>
     </title>
     <description>
         <en><![CDATA[Target Fill Level
@@ -79,17 +79,17 @@ Changelog 2.0.0.0
 	    <text name="fillType_targetVehicle">
 			<en>Target fill level</en>
 			<de>Ziel-Füllstand</de>
-			<ru>Заполнение ТС</ru>
+			<ru>Заполнение</ru>
 		</text>
 	    <text name="tfl_messageErrorTargetIsNearlyFull">
 			<en>%s: Target %s is nearly full! (80%%)</en>
 			<de>%s: Zielobjekts %s ist fast voll! (80%%)</de>
-			<ru>%s: Цель %s почти заполнена! (80%%)</ru>
+			<ru>%s: %s почти нет места! (80%%)</ru>
 		</text>
 	    <text name="tfl_messageErrorTargetIsFull">
 			<en>%s: Target %s is full!</en>
 			<de>%s: Zielobjekts %s ist voll!</de>
-			<ru>%s: Цель переполнена!</ru>
+			<ru>%s: Нет места!</ru>
 		</text>
 	</l10n>
 </modDesc>
