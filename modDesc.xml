@@ -26,6 +26,9 @@ Get ready to farm smarter, not harder. Download "Target Fill Level" and become t
 
 Have ideas to make the mod even better? Found a bug? Let us know on <a href="https://github.com/VertexDezign/TargetFillLevel/issues">Github</a> so we can keep improving the mod together!
 
+Changelog 2.0.1.1
+- Fixed LUA issue with unloading TMR with mixer wagon
+
 Changelog 2.0.1.0
 - Show notification when target fill level is at 80% or completely full
 - Add support for discharge to objects (unloading triggers, shovels) ...
@@ -51,6 +54,9 @@ Warum ist das genial?
 Mach dich bereit, cleverer zu farmen, nicht härter. Lade "Ziel-Füllstand" herunter und werde der beste Bauer im Spiel!
 
 Hast du Ideen, um den Mod noch besser zu machen? Einen Fehler gefunden? Lass es uns auf GitHub wissen, damit wir den Mod gemeinsam verbessern können!
+
+Changelog 2.0.1.1
+- LUA-Problem beim Entladen von TMR mit Mischwagen behoben
 
 Changelog 2.0.1.0
 - Benachrichtigung anzeigen, wenn der Zielfüllstand bei 80% oder vollständig gefüllt ist
