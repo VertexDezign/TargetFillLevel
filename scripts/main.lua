@@ -1,5 +1,5 @@
 --[[
-Target Fill Level Mod for Farming Simulator 22
+Target Fill Level Mod for Farming Simulator 25
 
 Author: André Buchman & VertexDezign
 Website: https://vertexdezign.net/
@@ -7,7 +7,7 @@ Issues: https://github.com/VertexDezign/TargetFillLevel/issues
 
 Feel free to open a pull reuests for enhancements or bugfixes.
 
-FS22_TargetFillLevel © 2023 by André Buchmann & VertexDezign is licensed under CC BY-NC-ND 4.0. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-nd/4.0/
+FS25_TargetFillLevel © 2023 by André Buchmann & VertexDezign is licensed under CC BY-NC-ND 4.0. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-nd/4.0/
 ]]
 
 TargetFillLevel = {}

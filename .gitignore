@@ -3,7 +3,7 @@
 
 # Build system
 .fsbuild.yml
-FS22_Survival*
+FS25_*
 *.zip
 .env
 

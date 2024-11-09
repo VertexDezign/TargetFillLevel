@@ -15,7 +15,7 @@ COPY %filename% %remoteGameProfile%mods\
 
 ECHO Happy Testing: %modName%
 
-@REM Available FS22 start params
+@REM Available FS25 start params
 @REM -cheats (enables cheats in the console)
 @REM -autoStartSavegameId 3 (loads the savegame automatically | *Replace "3" with the savegame ID of your choice)
 @REM -restart (prevents intro videos from playing | will also keep logging the game to the logfile)

@@ -1,6 +1,6 @@
 @ECHO off
 
-SET modName=FS22_TargetFillLevel
+SET modName=FS25_TargetFillLevel
 SET filename=%modName%.zip
 
 IF EXIST %filename% (

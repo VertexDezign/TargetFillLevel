@@ -4,7 +4,7 @@ name: "tagged-release"
 on:
   push:
     tags:
-      - "v*"
+      - "fs25-v*"
 
 jobs:
   tagged-release:
@@ -25,4 +25,4 @@ jobs:
           automatic_release_tag: "${{  github.ref_name }}"
           prerelease: false
           files: |
-            FS22_TargetFillLevel.zip
+            FS25_TargetFillLevel.zip

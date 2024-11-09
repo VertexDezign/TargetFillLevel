@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
-<modDesc descVersion="80">
+<modDesc descVersion="92">
     <author>-tinte- / VertexDezign</author>
-    <version>2.0.1.1</version>
+    <version>1.0.0.0</version>
     <title>
         <en>Target Fill Level</en>
         <de>Ziel-Füllstand</de>
-        <ru>Уровень Заполнения ТС И Хранилищ</ru>
     </title>
     <description>
         <en><![CDATA[Target Fill Level
 
 Ready to Load Like a Pro?
 
-Imagine you're driving your big combine or forage harvester in Farming Simulator 22, and you need to know when the trailer or silo you're unloading into is almost full. With the Target Fill Level mod, you can see exactly how full it is—right on your screen!
+Imagine you're driving your big combine or forage harvester in Farming Simulator 25, and you need to know when the trailer or silo you're unloading into is almost full. With the Target Fill Level mod, you can see exactly how full it is—right on your screen!
 
 Why is this Awesome?
 
@@ -25,23 +24,12 @@ Why is this Awesome?
 Get ready to farm smarter, not harder. Download "Target Fill Level" and become the best farmer in the game!
 
 Have ideas to make the mod even better? Found a bug? Let us know on <a href="https://github.com/VertexDezign/TargetFillLevel/issues">Github</a> so we can keep improving the mod together!
-
-Changelog 2.0.1.1
-- Fixed LUA issue with unloading TMR with mixer wagon
-
-Changelog 2.0.1.0
-- Show notification when target fill level is at 80% or completely full
-- Add support for discharge to objects (unloading triggers, shovels) ...
-
-Changelog 2.0.0.0
-- Use custom fill type for target vehicle
-- Display now implemented for all vehicles with a pipe
 ]]></en>
 <de><![CDATA[Ziel-Füllstand
 
 Bereit, wie ein Profi zu laden?
 
-Stell dir vor, du fährst deinen großen Mähdrescher oder Feldhäcksler in Farming Simulator 22 und musst wissen, wie voll der Anhänger oder das Silo ist, in das du entlädst. Mit dem Ziel-Füllstand-Mod kannst du genau sehen, wie voll es ist—direkt auf deinem Bildschirm!
+Stell dir vor, du fährst deinen großen Mähdrescher oder Feldhäcksler in Farming Simulator 25 und musst wissen, wie voll der Anhänger oder das Silo ist, in das du entlädst. Mit dem Ziel-Füllstand-Mod kannst du genau sehen, wie voll es ist—direkt auf deinem Bildschirm!
 
 Warum ist das genial?
 
@@ -54,17 +42,6 @@ Warum ist das genial?
 Mach dich bereit, cleverer zu farmen, nicht härter. Lade "Ziel-Füllstand" herunter und werde der beste Bauer im Spiel!
 
 Hast du Ideen, um den Mod noch besser zu machen? Einen Fehler gefunden? Lass es uns auf GitHub wissen, damit wir den Mod gemeinsam verbessern können!
-
-Changelog 2.0.1.1
-- LUA-Problem beim Entladen von TMR mit Mischwagen behoben
-
-Changelog 2.0.1.0
-- Benachrichtigung anzeigen, wenn der Zielfüllstand bei 80% oder vollständig gefüllt ist
-- Unterstützung für Ablade Trigger, Schaufeln, ... hinzugefügt
-
-Changelog 2.0.0.0
-- Eigener Fülltyp für die Anzeige des Zielfahrzeugs
-- Anzeige jetzt für alle Fahrzeuge mit einem Überladerohr implementiert
 ]]></de>
     </description>
     <iconFilename>icon_targetFillLevel.dds</iconFilename>
@@ -79,17 +56,14 @@ Changelog 2.0.0.0
 	    <text name="fillType_targetVehicle">
 			<en>Target fill level</en>
 			<de>Ziel-Füllstand</de>
-			<ru>Заполнение</ru>
 		</text>
 	    <text name="tfl_messageErrorTargetIsNearlyFull">
 			<en>%s: Target %s is nearly full! (80%%)</en>
 			<de>%s: Zielobjekts %s ist fast voll! (80%%)</de>
-			<ru>%s: %s почти нет места! (80%%)</ru>
 		</text>
 	    <text name="tfl_messageErrorTargetIsFull">
 			<en>%s: Target %s is full!</en>
 			<de>%s: Zielobjekts %s ist voll!</de>
-			<ru>%s: Нет места!</ru>
 		</text>
 	</l10n>
 </modDesc>

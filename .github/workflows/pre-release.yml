@@ -4,7 +4,7 @@ name: "pre-release"
 on:
   push:
     branches:
-      - "main"
+      - "fs25"
     tags-ignore:
       - "*"
 
@@ -23,8 +23,8 @@ jobs:
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          automatic_release_tag: "latest"
+          automatic_release_tag: "fs25-latest"
           prerelease: true
-          title: "Development Build"
+          title: "fs25-dev-latest"
           files: |
-            FS22_TargetFillLevel.zip
+            FS25_TargetFillLevel.zip
