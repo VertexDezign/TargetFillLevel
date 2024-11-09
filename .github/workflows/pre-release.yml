@@ -4,7 +4,7 @@ name: "pre-release"
 on:
   push:
     branches:
-      - "main"
+      - "fs22"
     tags-ignore:
       - "*"
 
@@ -23,7 +23,7 @@ jobs:
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          automatic_release_tag: "latest"
+          automatic_release_tag: "fs22-latest"
           prerelease: true
           title: "Development Build"
           files: |

@@ -4,7 +4,7 @@ name: "tagged-release"
 on:
   push:
     tags:
-      - "v*"
+      - "fs22-v*"
 
 jobs:
   tagged-release:
