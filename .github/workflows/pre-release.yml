@@ -25,6 +25,6 @@ jobs:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           automatic_release_tag: "fs22-latest"
           prerelease: true
-          title: "Development Build"
+          title: "fs22-dev-latest"
           files: |
             FS22_TargetFillLevel.zip
