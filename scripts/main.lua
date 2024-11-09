@@ -203,7 +203,7 @@ end
 
 -- Add helper functions to UnloadTrigger objects
 function UnloadTrigger:getFillUnitFillLevelTFL(fillUnitIndex, fillTypeIndex, farmId)
-	if self.target.getFillLevel ~= nil then
+	if self.target ~= nil and self.target.getFillLevel ~= nil then
 		local conversion = self.fillTypeConversions[fillTypeIndex]
 
 		if conversion ~= nil then
@@ -217,7 +217,7 @@ function UnloadTrigger:getFillUnitFillLevelTFL(fillUnitIndex, fillTypeIndex, far
 end
 
 function UnloadTrigger:getFillUnitCapacityTFL(fillUnitIndex, fillTypeIndex, farmId)
-	if self.target.getCapacity ~= nil then
+	if self.target ~= nil and self.target.getCapacity ~= nil then
 		local conversion = self.fillTypeConversions[fillTypeIndex]
 
 		if conversion ~= nil then
