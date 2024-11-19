@@ -23,7 +23,7 @@ Imagine you're driving your big combine or forage harvester in Farming Simulator
 
 Get ready to farm smarter, not harder. Download **Target Fill Level** and become the best farmer in the game! 🌾
 
-![Target Fill Level](resources/screenshots/10_Detail.jpg)
+![Target Fill Level](resources/preview.jpg)
 
 Have ideas to make the mod even better? Found a bug? Let us know on [Github](https://github.com/VertexDezign/TargetFillLevel/issues) so we can keep improving the mod together!
 
